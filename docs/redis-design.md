@@ -18,3 +18,52 @@ The Redis implementation will support the following use cases:
 - Update an application's status
 - Update an application's message
 - Delete an application
+
+## Redis Data Structures
+
+### 1. Application Record
+- Redis Type: Hash
+- Key Pattern: `application:{applicationId}`
+- Purpose: Stores the complete details of one application as a structured record.
+- Fields:
+  - `application_id`
+  - `listing_id`
+  - `applicant_user_id`
+  - `applied_at`
+  - `status`
+  - `message`
+
+Example:
+- Key: `application:app1001`
+- Value:
+  - `application_id = app1001`
+  - `listing_id = list501`
+  - `applicant_user_id = user33`
+  - `applied_at = 2026-04-17T10:15:00Z`
+  - `status = pending`
+  - `message = Interested in subleasing from June to August`
+
+### 2. Applications by Listing
+- Redis Type: Set
+- Key Pattern: `listing:{listingId}:applications`
+- Purpose: Stores all application IDs associated with a specific sublease listing.
+- Members: application IDs
+
+Example:
+- Key: `listing:list501:applications`
+- Members:
+  - `app1001`
+  - `app1002`
+  - `app1003`
+
+### 3. Applications by User
+- Redis Type: Set
+- Key Pattern: `user:{userId}:applications`
+- Purpose: Stores all application IDs submitted by a specific user.
+- Members: application IDs
+
+Example:
+- Key: `user:user33:applications`
+- Members:
+  - `app1001`
+  - `app1020`
