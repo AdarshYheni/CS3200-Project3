@@ -1,4 +1,12 @@
 {
+  "name": "cs3200-project3",
+  "version": "1.0.0",
+  "description": "Redis implementation for SubletSync application tracking",
+  "type": "module",
+  "main": "src/demo.js",
+  "scripts": {
+    "start": "node src/demo.js"
+  },
   "dependencies": {
     "dotenv": "^17.4.2",
     "redis": "^5.12.1"
