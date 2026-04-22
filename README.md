@@ -76,7 +76,7 @@ The demo script demonstrates:
 - Delete: remove an application and clean up related Redis sets
 
 ## Video Demo
-
+https://www.youtube.com/watch?v=IZP543v6H7M
 
 ## AI Usage
 AI was used to help plan the Redis data structure design, organize the project documentation, and refine explanations of Redis commands and Node.js implementation details.
